@@ -26,29 +26,9 @@ if ($jabatanpegawai == 'OPERATOR' || $jabatanpegawai == 'SEKRETARIS' || $jabatan
 }
 ?>
 <div class="menu_section">
-    <h3>Cuti</h3>
+    <h3>Laporan</h3>
     <ul class="nav side-menu">
-        <li><a href="#"><i class="fa fa-calendar"></i> Pengajuan Cuti <span class="fa fa-chevron-down"></span></a>
-            <ul class="nav child_menu">
-                <li><a href="index.php?page=ajukan_cuti">Ajukan Cuti</a></li>
-                <li><a href="index.php?page=daftar_approval">Menunggu Approval</a></li>
-            </ul>
-        </li>
-        <li><a href="#"><i class="fa fa-bell"></i>Data Pengajuan Cuti <span class="fa fa-chevron-down"></span></a>
-            <ul class="nav child_menu">
-                <li><a href="index.php?page=disetujui">Disetujui</a></li>
-                <li><a href="index.php?page=perubahan">Perubahan</a></li>
-                <li><a href="index.php?page=ditangguhkan">Ditangguhkan</a></li>
-                <li><a href="index.php?page=tidakdisetujui">Tidak Disetujui</a></li>
-            </ul>
-        </li>
-    </ul>
-</div>
-<div class="menu_section">
-    <h3>Management</h3>
-    <ul class="nav side-menu">
-        <li><a href="index.php?page=data_user"><i class="fa fa-users"></i> Data Users</a></li>
-        <li><a href="#"><i class="fa fa-database"></i> Data Pegawai <span class="fa fa-chevron-down"></span></a>
+        <li><a href="#"><i class="fa fa-database"></i> Laporan Pegawai <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
                 <li><a href="index.php?page=data_pegawai">Lihat Semua Data Pegawai</a></li>
                 <li><a href="index.php?page=data_jabatan">Data Jabatan</a></li>
