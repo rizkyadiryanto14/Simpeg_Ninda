@@ -15,13 +15,17 @@ if (isset($_POST['login'])) {
     $_SESSION['nip'] = $nip;
     $_SESSION['role'] = 'Admin';
     echo "<script>alert('Login Berhasil'); document.location='admin/index.php';</script>";
+  } elseif ($row == 'Kepsek') {
+    session_start();
+    $_SESSION['nip'] = $nip;
+    $_SESSION['role'] = 'Kepsek';
+    echo "<script>alert('Login Berhasil'); document.location='kepsek/index.php';</script>";
   } elseif ($row == "User") {
     session_start();
     $_SESSION['nip'] = $nip;
     $_SESSION['role'] = 'User';
     echo "<script>alert('Login Berhasil'); document.location='user/index.php';</script>";
-  }  else {
+  } else {
     echo "<script>alert('Username & Password Salah !'); document.location='index.php';</script>";
   }
 }
- ?>
