@@ -21,7 +21,7 @@
     <a href="#" title="Tambah User" class="btn btn-info pull-right" data-toggle="modal" data-target=".btn-tambah-pegawai"><i class="fa fa-plus-circle"></i> Tambah Pegawai</a>
     <div class="x_panel">
       <div class="x_title">
-        <h2>Data Pegawai <small>Daftar pegawai pengadilan agama karawang</small></h2>
+        <h2>Data Pegawai <small>Daftar pegawai </small></h2>
         <ul class="nav navbar-right panel_toolbox">
           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
           </li>

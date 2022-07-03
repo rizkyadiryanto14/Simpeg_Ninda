@@ -5,10 +5,10 @@
 
   <div class="title_right">
     <div class="col-md-3 col-sm-3 col-xs-12 pull-right">
-        <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item"><a href="#">KNP</a></li>
-        </ol>
+      <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">KNP</a></li>
+      </ol>
     </div>
   </div>
 </div>
@@ -19,7 +19,7 @@
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
-        <h2>Daftar KNP <small>Daftar KNP pegawai pengadilan agama karawang</small></h2>
+        <h2>Daftar KNP <small>Daftar KNP pegawai </small></h2>
         <ul class="nav navbar-right panel_toolbox">
           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
           </li>
@@ -54,24 +54,24 @@
 
           <tbody>
             <?php
-              include '../database/koneksi.php';
-              $query = mysqli_query($koneksi,"SELECT * FROM knp_pegawai knp, pegawai pg, jabatan jb, golongan gl WHERE knp.id_pegawai = pg.id_pegawai and nip='$nip' and pg.id_jabatan=jb.id_jabatan and pg.id_golongan=gl.id_golongan");
-              $i = 1;
-              while ($row = mysqli_fetch_array($query)) {
-             ?>
-             <tr>
-               <td><?php echo $i ?></td>
-               <td><?php echo $row['nama_pegawai'] ?></td>
-               <td><?php echo $row['nama_jabatan'] ?></td>
-               <td><?php echo $row['nama_golongan'] ?></td>
-               <td><?php echo $row['knp_terakhir'] ?></td>
-               <td><?php echo $row['knp_datang'] ?></td>
-               <td><?php echo $row['keterangan']; ?></td>
-             </tr>
-             <?php
-             $i++;
-           }
-              ?>
+            include '../database/koneksi.php';
+            $query = mysqli_query($koneksi, "SELECT * FROM knp_pegawai knp, pegawai pg, jabatan jb, golongan gl WHERE knp.id_pegawai = pg.id_pegawai and nip='$nip' and pg.id_jabatan=jb.id_jabatan and pg.id_golongan=gl.id_golongan");
+            $i = 1;
+            while ($row = mysqli_fetch_array($query)) {
+            ?>
+              <tr>
+                <td><?php echo $i ?></td>
+                <td><?php echo $row['nama_pegawai'] ?></td>
+                <td><?php echo $row['nama_jabatan'] ?></td>
+                <td><?php echo $row['nama_golongan'] ?></td>
+                <td><?php echo $row['knp_terakhir'] ?></td>
+                <td><?php echo $row['knp_datang'] ?></td>
+                <td><?php echo $row['keterangan']; ?></td>
+              </tr>
+            <?php
+              $i++;
+            }
+            ?>
           </tbody>
         </table>
 
@@ -93,16 +93,16 @@
                       <select class="form-control" name="pegawai">
                         <option selected disabled>-- Pilih Pegawai--</option>
                         <?php
-                          include '../database/koneksi.php';
-                          $query = mysqli_query($koneksi,"SELECT * FROM pegawai");
-                          $i = 1;
-                          while ($row = mysqli_fetch_array($query)) {
-                         ?>
-                         <option value="<?php echo $row['id_pegawai']; ?>"><?php echo $row['nama_pegawai']; ?> | <?php echo $row['nip']; ?></option>
-                         <?php
-                         $i++;
-                       }
-                          ?>
+                        include '../database/koneksi.php';
+                        $query = mysqli_query($koneksi, "SELECT * FROM pegawai");
+                        $i = 1;
+                        while ($row = mysqli_fetch_array($query)) {
+                        ?>
+                          <option value="<?php echo $row['id_pegawai']; ?>"><?php echo $row['nama_pegawai']; ?> | <?php echo $row['nip']; ?></option>
+                        <?php
+                          $i++;
+                        }
+                        ?>
                       </select>
                     </div>
                   </div>
@@ -148,22 +148,22 @@
     </div>
   </div>
   <?php
-  include'../database/koneksi.php';
+  include '../database/koneksi.php';
 
   if (isset($_POST['submit'])) {
-      $id = $_POST['pegawai'];
-      $knpterakhir = $_POST['knp_terakhir'];
-      $knpdatang = $_POST['knp_datang'];
-      $ket = $_POST['keterangan'];
+    $id = $_POST['pegawai'];
+    $knpterakhir = $_POST['knp_terakhir'];
+    $knpdatang = $_POST['knp_datang'];
+    $ket = $_POST['keterangan'];
 
 
-      $query = mysqli_query($koneksi, "INSERT INTO knp_pegawai VALUES ('', '$id','$knpterakhir', '$knpdatang', '$ket')");
+    $query = mysqli_query($koneksi, "INSERT INTO knp_pegawai VALUES ('', '$id','$knpterakhir', '$knpdatang', '$ket')");
 
-      if ($query) {
-        echo "<script>alert('Data Berhasil Ditambahkan'); document.location='index.php?page=daftar_knp';</script>";
-      }else {
-        echo "<script>alert('Data Gagal Ditambahkan'); document.location='index.php?page=daftar_knp';</script>";
-      }
+    if ($query) {
+      echo "<script>alert('Data Berhasil Ditambahkan'); document.location='index.php?page=daftar_knp';</script>";
+    } else {
+      echo "<script>alert('Data Gagal Ditambahkan'); document.location='index.php?page=daftar_knp';</script>";
+    }
   }
   ?>
 </div>
