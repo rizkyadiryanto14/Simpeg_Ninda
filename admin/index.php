@@ -68,7 +68,7 @@ if ($_SESSION['nip']) {
                 <img src="../build/images/sditlogo.ico" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>SDI Insan Qur'ani</span>
+                <span>SDIT Insan Qur'ani</span>
                 <span> Sumbawa</span>
               </div>
             </div>
@@ -149,6 +149,10 @@ if ($_SESSION['nip']) {
                 break;
               case 'data_golongan':
                 include 'data_golongan.php';
+                break;
+
+              case 'data_gaji':
+                include 'data_gaji.php';
                 break;
 
               case 'daftar_cuti':

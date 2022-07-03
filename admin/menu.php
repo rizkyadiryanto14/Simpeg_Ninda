@@ -53,6 +53,7 @@ if ($jabatanpegawai == 'OPERATOR' || $jabatanpegawai == 'SEKRETARIS' || $jabatan
         <li><a href="index.php?page=data_pegawai">Lihat Semua Data Pegawai</a></li>
         <li><a href="index.php?page=data_jabatan">Data Jabatan</a></li>
         <li><a href="index.php?page=data_golongan">Data Golongan</a></li>
+        <li><a href="index.php?page=data_gaji">Data Gaji</a></li>
       </ul>
     </li>
     <li><a href="#"><i class="fa fa-list"></i> Data Histori <span class="fa fa-chevron-down"></span></a>
