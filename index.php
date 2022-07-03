@@ -33,7 +33,7 @@
       <button class="btn mt-3" type="submit" name="login">Login</button>
     </form>
     <div class="text-center fs-6">
-      <a href="#">Forget password?</a> or <a href="#">Sign up</a>
+      <a href="forgot.php">Forget password?</a> or <a href="register.php">Sign up</a>
     </div>
   </div>
 </body>
