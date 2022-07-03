@@ -152,6 +152,9 @@ if ($_SESSION['nip']) {
                             case 'data_golongan':
                                 include 'data_golongan.php';
                                 break;
+                            case 'data_gaji':
+                                include 'data_gaji.php';
+                                break;
 
                             case 'daftar_cuti':
                                 include 'daftar_cuti.php';
