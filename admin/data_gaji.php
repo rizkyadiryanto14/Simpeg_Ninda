@@ -15,6 +15,7 @@
 <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
         <a href="#" class="btn btn-info pull-right" data-toggle="modal" data-target=".btn-tambah-gaji"><i class="fa fa-plus-circle"></i> Tambah Data Gaji</a>
+        <a href="export_gaji.php" title="Tambah User" class="btn btn-success pull-right"><i class="fa fa-download"></i> Export Laporan Gaji</a>
         <div class="x_panel">
             <div class="x_title">
                 <h2>Data Gaji <small>Data Gaji pegawai menurut golongan </small></h2>

@@ -46,10 +46,7 @@
               <th>No</th>
               <th>Nama</th>
               <th>NIP</th>
-              <th>Jabatan</th>
-              <th>Golongan</th>
-              <th>Unit Kerja</th>
-              <th>Pendidikan</th>
+              <th>Gambar</th>
               <th class="text-center" style="width:25%">Action</th>
             </tr>
           </thead>
@@ -57,6 +54,7 @@
 
 
           <tbody>
+
             <?php
             include '../database/koneksi.php';
             $query = mysqli_query($koneksi, "SELECT * FROM pegawai pg, jabatan jb, golongan gl, pendidikan pdk WHERE pg.id_jabatan=jb.id_jabatan and pg.id_golongan=gl.id_golongan and pg.id_pendidikan=pdk.id_pendidikan order by pg.id_jabatan");
@@ -67,12 +65,9 @@
                 <td><?php echo $i ?></td>
                 <td><?php echo $row['nama_pegawai'] ?></td>
                 <td><?php echo $row['nip'] ?></td>
-                <td><?php echo $row['nama_jabatan'] ?></td>
-                <td><?php echo $row['nama_golongan'] ?></td>
-                <td><?php echo $row['unit_kerja']; ?></td>
-                <td><?php echo $row['nama_pendidikan'] ?></td>
+                <td><img src="../build/images/laki.jpg" width="50"></td>
                 <td class="text-center">
-                  <a href="#" class="btn btn-info" data-toggle="modal" data-target="#modalviewpegawai<?php echo $row['nip'] ?>"><i class="fa fa-eye"></i> View</a>
+                  <a href="#" class="btn btn-info" data-toggle="modal" data-target="#modalviewpegawai<?php echo $row['nip'] ?>"><i class="fa fa-eye"></i> Detail</a>
                   <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modaleditpegawai<?php echo $row['nip'] ?>"><i class="fa fa-edit"></i> Edit</a>
                   <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#modaldeletepegawai<?php echo $row['nip'] ?>"><i class="fa fa-trash"></i> Delete</a>
                 </td>
@@ -121,9 +116,21 @@
                           <input type="text" class="form-control" name="pegawai" value="<?php echo $row['nama_pegawai']; ?>">
                         </div>
                         <div class="form-group">
+                          <label>Jenis Kelamin</label>
+                          <select class="form-control" name="jenis_kelamin">
+                            <option selected disabled>-- Pilih Jenis Kelamin --</option>
+                            <option value="Laki-Laki">Laki-Laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label>Alamat</label>
+                          <input type="text" class="form-control" name="alamat" placeholder="Alamat">
+                        </div>
+                        <div class="form-group">
                           <label>Jabatan</label>
                           <select class="form-control" name="jabatan">
-                            <option selected disabled>-- Pilih Jabatan--</option>
+                            <option selected disabled>-- Pilih Jabatan --</option>
                             <?php
                             $jabatan = mysqli_query($koneksi, "SELECT * FROM jabatan");
                             while ($rowjab = mysqli_fetch_array($jabatan)) {
@@ -176,10 +183,15 @@
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h4 class="modal-title">View Pegawai <?php echo $row['nama_pegawai']; ?></h4>
+                      <h4 class="modal-title"><?php echo $row['nama_pegawai']; ?></h4>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
+                    </div>
+                    <div class="x_content">
+                      <div class="text-center">
+                        <img src="../build/images/laki.jpg" alt="" class="img-circle" width="100">
+                      </div>
                     </div>
                     <div class="modal-body">
                       <strong>Nama Lengkap</strong>
@@ -187,6 +199,15 @@
                       <hr>
                       <strong>NIP</strong>
                       <p class="text-muted"><?php echo $row['nip']; ?></p>
+                      <hr>
+                      <strong>Jenis-Kelamin</strong>
+                      <p class="text-muted"><?php echo $row['jenis_kelamin'] ?></p>
+                      <hr>
+                      <strong>Alamat</strong>
+                      <p class="text-muted"><?php echo $row['alamat'] ?></p>
+                      <hr>
+                      <strong>TTL</strong>
+                      <p class="text-muted"><?php echo $row['TTL'] ?></p>
                       <hr>
                       <strong>Jabatan</strong>
                       <p class="text-muted"><?php echo $row['nama_jabatan']; ?></p>

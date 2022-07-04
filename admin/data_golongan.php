@@ -18,6 +18,7 @@
 <div class="row">
   <div class="col-md-12 col-sm-12 col-xs-12">
     <a href="#" class="btn btn-info pull-right" data-toggle="modal" data-target=".btn-tambah-golongan"><i class="fa fa-plus-circle"></i> Tambah Golongan</a>
+    <a href="export_golongan.php" title="Tambah User" class="btn btn-success pull-right"><i class="fa fa-download"></i> Export Laporan Golongan</a>
     <div class="x_panel">
       <div class="x_title">
         <h2>Data Golongan <small>Data golongan pegawai </small></h2>

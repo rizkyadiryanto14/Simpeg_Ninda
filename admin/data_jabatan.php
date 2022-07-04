@@ -18,6 +18,7 @@
 <div class="row">
   <div class="col-md-12 col-sm-12 col-xs-12">
     <a href="#" class="btn btn-info pull-right" data-toggle="modal" data-target=".btn-tambah-jabatan"><i class="fa fa-plus-circle"></i> Tambah Jabatan</a>
+    <a href="export_jabatan.php" title="Tambah User" class="btn btn-success pull-right"><i class="fa fa-download"></i> Export Laporan Jabatan</a>
     <div class="x_panel">
       <div class="x_title">
         <h2>Data Jabatan <small>Data jabatan pegawai</small></h2>
