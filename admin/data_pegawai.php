@@ -128,6 +128,20 @@
                           <input type="text" class="form-control" name="alamat" placeholder="Alamat">
                         </div>
                         <div class="form-group">
+                          <label>TTL</label>
+                          <input type="text" class="form-control" name="TTL" placeholder="TTL">
+                        </div>
+                        <div class="form-group">
+                          <label>Agama</label>
+                          <select name="agama" class="form-control">
+                            <option selected disabled>-- Pilih Agama --</option>
+                            <option value="islam">Islam</option>
+                            <option value="hindu">Hindu</option>
+                            <option value="kristen">Kristen</option>
+                            <option value="budha">Budha</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
                           <label>Jabatan</label>
                           <select class="form-control" name="jabatan">
                             <option selected disabled>-- Pilih Jabatan --</option>
@@ -170,6 +184,17 @@
                             ?>
                           </select>
                         </div>
+
+                        <div class="form-group">
+                          <label>Tahun Masuk</label>
+                          <input type="text" name="tahun_masuk" id="" placeholder="2020" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                          <label for="">Tahun Keluar</label>
+                          <input type="text" name="tahun_keluar" id="" placeholder="2022" class="form-control">
+                        </div>
+
                         <div class="form-group">
                           <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
@@ -209,14 +234,23 @@
                       <strong>TTL</strong>
                       <p class="text-muted"><?php echo $row['TTL'] ?></p>
                       <hr>
+                      <strong>Agama</strong>
+                      <p class="text-muted"><?php echo $row['agama'] ?></p>
+                      <hr>
                       <strong>Jabatan</strong>
-                      <p class="text-muted"><?php echo $row['nama_jabatan']; ?></p>
+                      <p class="text-muted"><?php echo $row['nama_jabatan'] ?></p>
                       <hr>
                       <strong>Golongan</strong>
-                      <p class="text-muted"><?php echo $row['nama_golongan']; ?></p>
+                      <p class="text-muted"><?php echo $row['nama_golongan'] ?></p>
                       <hr>
-                      <strong>Pendidikan</strong>
+                      <strong>Pendidikan Terakhir</strong>
                       <p class="text-muted"><?php echo $row['nama_pendidikan'] ?></p>
+                      <hr>
+                      <strong>Tahun Masuk</strong>
+                      <p class="text-muted"><?php echo $row['tahun_masuk'] ?></p>
+                      <hr>
+                      <strong>Tahun Keluar</strong>
+                      <p class="text-muted"><?php echo $row['tahun_keluar'] ?></p>
                     </div>
                   </div>
                 </div>
@@ -251,6 +285,44 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">NIP</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                       <input class="form-control col-md-7 col-xs-12" type="number" name="nip" placeholder="Masukkan NIP">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="" class="control-label col-md-3 col-sm-3 col-xs-12">Jenis Kelamin</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <select name="jenis_kelamin" id="" class="form-control">
+                        <option value="" selected disabled>-- Jenis Kelamin --</option>
+                        <option value="laki-laki">Laki-Laki</option>
+                        <option value="perempuan">Perempuan</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="" class="control-label col-md-3 col-sm-3 col-xs-12">Alamat</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input type="text" class="form-control" name="alamat" placeholder="Masukan Alamat">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="" class="control-label col-md-3 col-sm-3 col-xs-12">Agama</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <select name="agama" id="" class="form-control">
+                        <option value="" selected disabled>-- Pilih Agama --</option>
+                        <option value="islam">Islam</option>
+                        <option value="kristes">Kristen</option>
+                        <option value="hindu">Hindu</option>
+                        <option value="budha">Budha</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="" class="control-label col-md-3 col-sm-3 col-xs-12">TTL</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input type="text" name="TTL" id="" class="form-control" placeholder="example:Bima,14 Agustus 2000">
                     </div>
                   </div>
 
@@ -291,7 +363,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Pendidikan</label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Pendidikan Terakhir</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                       <select class="form-control" name="jabatan">
                         <option selected disabled>-- Pilih Pendidikan --</option>
@@ -308,6 +380,19 @@
                     </div>
                   </div>
 
+                  <div class="form-group">
+                    <label for="" class="control-label col-md-3 col-sm-3 col-xs-12">Tahun Masuk</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input class="form-control col-md-7 col-xs-12" type="text" name="tahun_masuk" placeholder="Masukan Tahun Masuk">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="" class="control-label col-md-3 col-sm-3 col-xs-12">Tahun Keluar</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input class="form-control col-md-7 col-xs-12" type="text" name="tahun_keluar" id="" placeholder="Masukan Tahun Keluar">
+                    </div>
+                  </div>
                   <div class="ln_solid"></div>
                   <div class="form-group">
                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
@@ -333,11 +418,16 @@ include '../database/koneksi.php';
 if (isset($_POST['submit'])) {
   $namapegawai = $_POST['nama_lengkap'];
   $nippegawai = $_POST['nip'];
+  $jenis_kelamin = $_POST['jenis_kelamin'];
+  $alamat = $_POST['alamat'];
+  $TTL = $_POST['TTL'];
   $jabatanpegawai = $_POST['jabatan'];
   $golpegawai = $_POST['golongan'];
   $pendidikan = $_POST['pendidikan'];
+  $tahun_masuk = $_POST['tahun_masuk'];
+  $tahun_keluar = $_POST['tahun_keluar'];
 
-  $query = mysqli_query($koneksi, "INSERT INTO pegawai VALUES (null, '$namapegawai','$nippegawai', '$jabatanpegawai', '$golpegawai', 'Sumbawa', '$pendidikan')");
+  $query = mysqli_query($koneksi, "INSERT INTO pegawai VALUES (null, '$namapegawai','$nippegawai','$jenis_kelamin','$alamat', '$jabatanpegawai', '$golpegawai', 'Sumbawa', '$pendidikan', '$tahun_masuk')");
 
   if ($query) {
     echo "<script>alert('Data Berhasil Ditambahkan'); document.location='index.php?page=data_pegawai';</script>";

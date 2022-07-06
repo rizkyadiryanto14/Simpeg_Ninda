@@ -15,7 +15,7 @@
   <div class="col-md-2 col-sm-2 col-xs-2"></div>
   <div class="col-md-8 col-sm-12 col-xs-12">
     <a href="#" class="btn btn-danger pull-right" data-toggle="modal" data-target=".btn-resetpass"><i class="fa fa-key"></i> Reset Password</a>
-    <a href="#" class="btn btn-info pull-right" data-toggle="modal" data-target=".btn-edit-profile"><i class="fa fa-edit"></i> Edit Photo Profile</a>
+    <a href="#" class="btn btn-info pull-right" data-toggle="modal" data-target=".btn-edit-profile"><i class="fa fa-edit"></i> Edit Profile</a>
     <div class="x_panel">
       <div class="x_title">
         <h2>Profile</h2>
@@ -63,6 +63,15 @@
         <strong>NIP</strong>
         <p class="text-muted"><?php echo $row['nip']; ?></p>
         <hr>
+        <strong>Jenis Kelamin</strong>
+        <p class="text-muted"><?php echo $row['jenis_kelamin']; ?></p>
+        <hr>
+        <strong>Alamat</strong>
+        <p class="text-muted"><?php echo $row['alamat']; ?></p>
+        <hr>
+        <strong>Agama</strong>
+        <p class="text-muted"><?php echo $row['agama']; ?></p>
+        <hr>
         <strong>Jabatan</strong>
         <p class="text-muted"><?php echo $row['nama_jabatan']; ?></p>
         <hr>
@@ -72,6 +81,11 @@
         <strong>Pendidikan Terakhir</strong>
         <p class="text-muted"><?php echo $row['nama_pendidikan']; ?></p>
         <hr>
+        <strong>Tahun Masuk</strong>
+        <p class="text-muted"><?php echo $row['tahun_masuk'] ?></p>
+        <hr>
+        <strong>Tahun Keluar</strong>
+        <p class="text-muted"><?php echo $row['tahun_keluar'] ?></p>
         <hr>
       </div>
     </div>
@@ -90,20 +104,102 @@
         <h4 class="modal-title" id="myModalLabel">Form Edit Profile </h4>
       </div>
       <div class="modal-body">
-        <form data-parsley-validate class="form-horizontal form-label-left" action="update_profile.php" method="POST" enctype="multipart/form-data">
+        <form data-parsley-validate class="form-horizontal form-label-left" action="edit_profile.php" method="POST" enctype="multipart/form-data">
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Foto</label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="hidden" name="nip" value="<?php echo $row['nip']; ?>">
-              <input type="file" required="required" class="form-control col-md-7 col-xs-12" name="gambar">
+            <label>Nama Lengkap</label>
+            <div class="form-group">
+              <input type="text" required="required" class="form-control" name="nama_pegawai" value="<?php echo $row['nama_pegawai']; ?>">
             </div>
+          </div>
+          <div class="form-group">
+            <label>NIP</label>
+            <div class="form-group">
+              <input type="text" class="form-control" name="nip" value="<?php echo $row['nip']; ?>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Jenis Kelamin</label>
+            <select class="form-control" name="jenis_kelamin">
+              <option selected disabled>-- Pilih Jenis Kelamin --</option>
+              <option value="laki-laki">Laki-Laki</option>
+              <option value="perempuan">Perempuan</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Alamat</label>
+            <input type="text" class="form-control" name="alamat" placeholder="Alamat">
+          </div>
+          <div class="form-group">
+            <label>TTL</label>
+            <input type="text" class="form-control" name="TTL" placeholder="TTL">
+          </div>
+          <div class="form-group">
+            <label>Agama</label>
+            <select name="agama" class="form-control">
+              <option selected disabled>-- Pilih Agama --</option>
+              <option value="islam">Islam</option>
+              <option value="hindu">Hindu</option>
+              <option value="kristen">Kristen</option>
+              <option value="budha">Budha</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Jabatan</label>
+            <select class="form-control" name="jabatan">
+              <option selected disabled>-- Pilih Jabatan --</option>
+              <?php
+              $jabatan = mysqli_query($koneksi, "SELECT * FROM jabatan");
+              while ($rowjab = mysqli_fetch_array($jabatan)) {
+              ?>
+                <option value="<?php echo $rowjab['id_jabatan']; ?>"><?php echo $rowjab['nama_jabatan']; ?></option>
+              <?php
+              }
+              ?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Golongan</label>
+            <select class="form-control" name="golongan">
+              <option selected disabled>-- Pilih Golongan--</option>
+              <?php
+              $jabatan = mysqli_query($koneksi, "SELECT * FROM golongan");
+
+              while ($rowjab = mysqli_fetch_array($jabatan)) {
+              ?>
+                <option value="<?php echo $rowjab['id_golongan']; ?>"><?php echo $rowjab['nama_golongan']; ?></option>
+              <?php
+              }
+              ?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Pendidikan</label>
+            <select class="form-control" name="pendidikan">
+              <option selected disabled>-- Pilih Pendidikan--</option>
+              <?php
+              $pendidikan = mysqli_query($koneksi, "SELECT * FROM pendidikan");
+              while ($rowpen = mysqli_fetch_array($pendidikan)) {
+              ?>
+                <option value="<?php echo $rowpen['id_pendidikan']; ?>"><?php echo $rowpen['nama_pendidikan']; ?></option>
+              <?php
+              }
+              ?>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="">Tahun Masuk</label>
+            <input type="text" name="tahun_masuk" id="" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="">Tahun Keluar</label>
+            <input type="text" name="tahun_keluar" class="form-control">
           </div>
 
           <div class="ln_solid"></div>
           <div class="form-group">
-            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-              <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-            </div>
+            <button type="submit" class="btn btn-primary" name="submit">Submit</button>
           </div>
         </form>
       </div>
